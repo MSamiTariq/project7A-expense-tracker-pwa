@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h4, h5 {
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#box {
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid black; */
+  box-shadow: black 1px 1px 6px;
+  justify-content: space-between;
+  padding: 12px;
+  margin: 20px 0px;
+}
+
+.para {
+  margin-top: -12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+}
+
+p.plus {
+  color: green;
+}
+
+p.minus {
+  color: red;
+}
+
+#box>div:first-of-type {
+  border-right: 1px solid #dedede;
+}
+
+#box>div {
+  flex: 1 0px;
+}
+
+.bal {
+  margin-top: -23px;
+  text-align: center;
+}
+
+.trhistory {
+  border-bottom: rgb(153, 145, 145) 0.5px solid;
+  font-size: x-large;
+  padding-bottom: 12px;
+}
+
+.unlist {
+  list-style: none;
+}
+
+.del-btn {
+  position: absolute;
+  top: 25%;
+  left: -26px;
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: .3s ease;
+  
+  transform: translate();
+}
+
+ul li:hover .del-btn {
+  opacity: 1;
+}
+
+li {
+  box-shadow: black 1px 1px 4px;
+  height: 38px;
+  padding: 8px;
+  margin: 15px 0px 15px;
+  display: flex;
+  justify-content: space-between;
+  transition: .3s ease;
+}
+ul .plus:hover{
+background-color: green;
+color: white;
+}
+ul .minus:hover{
+background-color: red;
+color: white;
+}
+
+ul{
+  padding: 0px;
+}
+
+ul .plus{
+  border-right: green solid 4px;
+  position: relative;
+}
+ul .minus{
+  border-right: red solid 4px;
+  position: relative;
+}
+
+.label{
+  display: block;
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 13px;
+  margin-top: 15px;
+}
+
+input{
+  width: 100%;
+  height: 26px;
+}
+
+#submit{
+  width: 100%;
+  margin-top: 15px;
+  height: 30px;
+  background-color: rgb(194, 198, 240);
+  transition:.3s ease;
+  margin-bottom: 21px;
+}
+
+#submit:hover{
+  box-shadow: 3px 3px 3px black;
+}
+
+.newtrx{
+  margin-bottom: -4px;
+}
+
+form p{
+  font-size: small;
+  font-style: italic;
+  margin-top: -5px;
 }

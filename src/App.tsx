@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import { Balance } from './components/Balance';
+import { AccountSummary } from './components/AccountSummary';
+import { TransactionHistory } from './components/TransactionHistory';
+import {AddTransaction} from './components/AddTransaction';
+import firebase from './firebase'
+// Import Provider
+import { GlobalProvider } from './context/GlobalState';
 
 function App() {
+  const messaging = firebase.messaging();
+  Notification.requestPermission().then((permission) => {
+    if(permission === 'granted'){
+      return messaging.getToken();
+    }
+  }).then((token: any) => {
+    console.log(token);
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <GlobalProvider>
+      <Header />
+      <div className="container">
+        <Balance />
+        <AccountSummary />
+        <TransactionHistory />
+        <AddTransaction />
+      </div>
+      </GlobalProvider>
+);
 }
 
 export default App;
